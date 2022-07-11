@@ -1,0 +1,78 @@
+# mybatis plus
+mybatis-plus:
+  mapper-locations: classpath*:com/hj/**/*.xml
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+
+hj:
+  4a:
+    permit_all_url:  /oauth/**
+
+server:
+  port: 8686
+
+security:
+  oauth2:
+    resource:
+      user-info-uri: http://localhost:8585/users/current
+    client:
+      id: test
+      client-secret: test@12345
+      access-token-uri: http://localhost:8585/oauth/token
+      grant-type: client_credentials,password
+      scope: server
+
+spring:
+  main:
+    allow-bean-definition-overriding: true
+
+  application:
+    name: 4a-client
+
+  profiles:
+    active: prod
+
+  mvc:
+    pathmatch:
+      # Boot 2.6+ 默认的路由匹配策略，Swagger 暂不兼容，使用老策略
+      matching-strategy: ant_path_matcher
+
+  cloud:
+    nacos:
+      config:
+        file-extension: yaml
+
+---
+spring:
+  profiles: dev
+  cloud:
+    nacos:
+      discovery:
+        server-addr: localhost:8848
+        namespace: dev
+      config:
+        server-addr: localhost:8848
+        namespace: dev
+
+---
+spring:
+  profiles: test
+  cloud:
+    nacos:
+      discovery:
+        server-addr: localhost:8848
+        namespace: test
+      config:
+        server-addr: localhost:8848
+        namespace: test
+---
+spring:
+  profiles: prod
+  cloud:
+    nacos:
+      discovery:
+        server-addr: localhost:8848
+        namespace: prod
+      config:
+        server-addr: localhost:8848
+        namespace: prod
