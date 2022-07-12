@@ -33,7 +33,6 @@
         <spring-cloud.version>2021.0.3</spring-cloud.version>
         <mybatis-plus.version>3.4.3.4</mybatis-plus.version>
         <spring-cloud-oauth2.version>2.2.5.RELEASE</spring-cloud-oauth2.version>
-        <nacos-client.vesion>1.4.2</nacos-client.vesion>
         <spring-cloud-alibaba.version>2021.0.1.0</spring-cloud-alibaba.version>
         <spring-cloud-starter-bootstrap.version>3.0.3</spring-cloud-starter-bootstrap.version>
 
@@ -90,29 +89,6 @@
                 <groupId>com.alibaba.cloud</groupId>
                 <artifactId>spring-cloud-starter-alibaba-sentinel</artifactId>
                 <version>${spring-cloud-alibaba.version}</version>
-            </dependency>
-
-            <dependency>
-                <groupId>com.alibaba.nacos</groupId>
-                <artifactId>nacos-client</artifactId>
-                <version>${nacos-client.vesion}</version>
-                <exclusions>
-                    <exclusion>
-                        <groupId>commons-codec</groupId>
-                        <artifactId>commons-codec</artifactId>
-                    </exclusion>
-
-                    <exclusion>
-                        <groupId>commons-lang</groupId>
-                        <artifactId>commons-lang</artifactId>
-                    </exclusion>
-
-                    <!-- 默认引入的 guava 版本过低，存在安全风险，手动指定新版本 -->
-                    <exclusion>
-                        <groupId>com.google.guava</groupId>
-                        <artifactId>guava</artifactId>
-                    </exclusion>
-                </exclusions>
             </dependency>
 
             <dependency>
