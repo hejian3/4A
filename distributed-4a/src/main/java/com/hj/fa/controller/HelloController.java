@@ -12,9 +12,9 @@ import java.security.Principal;
 @Slf4j
 public class HelloController {
 
-    @GetMapping("/leador")
+    @GetMapping("/test")
     public String hello() {
-        return " hello leador ";
+        return " hello test ";
     }
 
     @GetMapping("/users/current")
