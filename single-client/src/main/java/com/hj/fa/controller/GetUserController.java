@@ -1,5 +1,6 @@
 package com.hj.fa.controller;
 
+import com.hj.fa.annotation.CurrentUser;
 import com.hj.fa.model.User;
 import com.hj.fa.service.IUserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -29,6 +30,11 @@ public class GetUserController {
     @GetMapping("/test")
     public String helloTest(){
         return "hello,test";
+    }
+
+    @GetMapping("/userInfo")
+    public User getUserInfo(@CurrentUser User user){
+        return user;
     }
 
 }

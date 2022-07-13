@@ -4,7 +4,6 @@ mybatis-plus:
   configuration:
     log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
 
-#数据源基础相关配置
 hj:
   4a:
     permit_all_url:  /oauth/**
